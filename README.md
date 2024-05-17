@@ -20,10 +20,10 @@ This engine allows artists and technical directors to access ShotGrid functional
 By using this toolkit, users can easily manage assets, publish work, and track project progress within the Katana environment.
 
 ## Environments
-tk-katana has been tested in this environment:
-- Flow Production Tracking Desktop App 1.8.0
+`tk-katana` has been tested in this environment:
+- Shotgrid Desktop App 1.8.0
 - Katana 6.0v4
-  - Katana 6.0v4 uses PyQt5 but this engine converts the UI to PySide2.
+  - Katana 6.0v4 uses `PyQt5` but this engine converts the UI to `PySide2`.
 
 ## Features
 
@@ -46,7 +46,7 @@ After adding the `tk-katana` engine, you can add various apps to `tk-katana`.
 
 #### 1. Locate where you installed Pipeline Configuration
 
-#### 2. Add KATANA_RESOURCES to recognition of init.py in tk-katana within Katana
+#### 2. Add `KATANA_RESOURCES` to recognition of init.py in `tk-katana` within Katana
 
 ```sh
 export KATANA_RESOURCES="$KATANA_RESOURCES:/tk-katana/resources/Katana"
