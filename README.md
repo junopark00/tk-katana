@@ -11,7 +11,6 @@
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
 
 ## Introduction
 
@@ -26,37 +25,27 @@
 
 ## Installation
 
-To install `tk-katana`, follow these steps:
+#### You must be prepared for [Shotgrid](https://shotgrid.autodesk.com/)  and Advanced Project Settings in Shotgrid Desktop App to use `tk-katana`!
 
-#### 1. Clone the repository:
-```sh
-   git clone https://github.com/yourusername/tk-katana.git
-```
-#### 2. Navigate to the project directory:
+The official [ShotGrid Developer Help Center](https://help.autodesk.com/view/SGDEV/ENU/) and [Shotgrid Community](https://community.shotgridsoftware.com/) can be helpful.
 
+#### Clone this repository:
 ```sh
-   cd tk-katana
-```
-#### 3. Install the required dependencies:
-
-```sh
-   pip install -r requirements.txt
-```
-#### 4. Set up the environment variables:
-
-```sh
-   export SHOTGRID_SITE=https://yourshotgridsite.shotgunstudio.com
-   export SHOTGRID_API_KEY=your_api_key
+   git clone https://github.com/junopark00/tk-katana
 ```
 
 ## Configuration
-Configure tk-katana by editing the config.yml file located in the config directory. Set the appropriate values for your ShotGrid site and other necessary settings.
+To configure `tk-katana`, edit the environment yml files located in the `config` directory.
+After adding the `tk-katana` engine, you can add various apps to `tk-katana`.
 
-#### Example config.yml:
+
+#### Example engine_locations.yml:
 ```yaml
-   shotgrid_site: "https://yourshotgridsite.shotgunstudio.com"
-   api_key: "your_api_key"
-   project_id: 123
+engines.tk-katana.location:
+  type: dev
+  name: tk-katana
+  version: v0.0.1
+  path: "/path/to/tk-katana/engine"
 ```
 ## Usage
 To use `tk-katana` within Katana:
@@ -77,6 +66,3 @@ Open a pull request.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Acknowledgements
-Special thanks to the ShotGrid and Katana communities for their support and contributions.
