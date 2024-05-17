@@ -1,6 +1,20 @@
+# Copyright (c) 2024 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+
+
+__author__ = "Juno Park"
+__github__ = "https://github.com/junopark00/tk-katana"
+
+
 import os
 import sgtk
-import unicodedata
 from Katana import FarmAPI
 from Katana import KatanaFile
 from Katana import UI4
@@ -14,7 +28,6 @@ class KatanaStartVersionControlPlugin(HookBaseClass):
     Simple plugin to insert a version number into the katana file path if one
     does not exist.
     """
-
     @property
     def icon(self):
         """
@@ -132,7 +145,6 @@ class KatanaStartVersionControlPlugin(HookBaseClass):
                 "The Katana session has not been saved.",
                 extra=_get_save_as_action()
             )
-
         self.logger.info(
             "Katana '%s' plugin accepted the current session." %
             (self.name,),
@@ -159,7 +171,6 @@ class KatanaStartVersionControlPlugin(HookBaseClass):
 
         :returns: True if item is valid, False otherwise.
         """
-
         publisher = self.parent
         path = _session_path()
 
@@ -203,7 +214,6 @@ class KatanaStartVersionControlPlugin(HookBaseClass):
         """
 
         publisher = self.parent
-
         # get the path in a normalized state. no trailing separator, separators
         # are appropriate for current os, no double separators, etc.
         path = sgtk.util.ShotgunPath.normalize(_session_path())
@@ -246,7 +256,6 @@ class KatanaStartVersionControlPlugin(HookBaseClass):
         not configured, the version number will be extracted using the zero
         config path_info hook.
         """
-
         publisher = self.parent
         version_number = None
 
@@ -278,13 +287,11 @@ def _session_path():
     :return:
     """
     path = FarmAPI.GetKatanaFileName()
-    
-    # if isinstance(path, unicode):
+
     if isinstance(path, str):
         path = path.encode("utf-8")
 
     return path
-
 
 def _save_session(path):
     """
@@ -295,9 +302,6 @@ def _save_session(path):
     # explicitly based on the extension
     KatanaFile.Save( path )
 
-
-
-# TODO: method duplicated in all the Katana hooks
 def _get_save_as_action():
     """
 
@@ -323,7 +327,6 @@ def _get_save_as_action():
         }
     }
 
-
 def _save_as():
     project_path = os.path.dirname(FarmAPI.GetKatanaFileName())
     path = UI4.Util.AssetId.BrowseForAsset(
@@ -332,14 +335,11 @@ def _save_as():
         False,
         {'fileTypes': 'katana'},
     )
-    # make sure not using unicode!
-    # if isinstance(path, unicode):
     if not isinstance(path, str):
         path = path.encode("utf-8")
 
     if path:
         KatanaFile.Save( path )
-
 
 def _get_version_docs_action():
     """

@@ -1,4 +1,4 @@
-# Copyright (c) 2017 Shotgun Software Inc.
+# Copyright (c) 2024 Shotgun Software Inc.
 #
 # CONFIDENTIAL AND PROPRIETARY
 #
@@ -8,9 +8,13 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
+
+__author__ = "Juno Park"
+__github__ = "https://github.com/junopark00/tk-katana"
+
+
 import os
 import sgtk
-import pprint
 
 from sgtk.platform import SoftwareLauncher, SoftwareVersion, LaunchInformation
 
@@ -190,7 +194,14 @@ class KatanaLauncher(SoftwareLauncher):
         """
         Minimum supported version by this launcher.
         """
-        return "3.0.5"
+        return "3.1.0"
+    
+    @property
+    def maximum_tested_version(self):
+        """
+        Maximum tested version by this launcher.
+        """
+        return "6.0.4"
 
     def prepare_launch(self, exec_path, args, file_to_open=None):
         """
@@ -208,9 +219,9 @@ class KatanaLauncher(SoftwareLauncher):
         required_env = {}
 
         # Add context information info to the env.
-        required_env["TANK_CONTEXT"] = sgtk.Context.serialize(self.context)
-        required_env["TANK_ENGINE"] = self.engine_name
+        required_env["SGTK_CONTEXT"] = sgtk.Context.serialize(self.context)
+        required_env["SGTK_ENGINE"] = self.engine_name
 
-        self.logger.debug("Launch environment: %s", pprint.pformat(required_env))
+        self.logger.debug("Launch environment: %s", required_env)
 
         return LaunchInformation(exec_path, args, required_env)

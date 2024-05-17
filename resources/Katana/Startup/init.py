@@ -1,3 +1,7 @@
+__author__ = "Juno Park"
+__github__ = "https://github.com/junopark00/tk-katana"
+
+
 """
 Setup the environment and menu to run Shotgun tools.
 """
@@ -12,14 +16,14 @@ def bootstrap():
     logger = logging.getLogger(__name__)
     error_msg = "Shotgun: Missing required environment variable: '%s'."
 
-    engine_name = os.environ.get("TANK_ENGINE")
+    engine_name = os.environ.get("SGTK_ENGINE")
     if engine_name is None:
-        logger.error(error_msg, "TANK_ENGINE")
+        logger.error(error_msg, "SGTK_ENGINE")
         return
     
-    serialized_context = os.environ.get("TANK_CONTEXT")
+    serialized_context = os.environ.get("SGTK_CONTEXT")
     if serialized_context is None:
-        logger.error(error_msg, "TANK_CONTEXT")
+        logger.error(error_msg, "SGTK_CONTEXT")
         return
 
     # Import sgtk to deserialize and start engine

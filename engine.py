@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Shotgun Software Inc.
+# Copyright (c) 2024 Shotgun Software Inc.
 #
 # CONFIDENTIAL AND PROPRIETARY
 #
@@ -8,9 +8,10 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
-"""
-A Toolkit engine for Katana
-"""
+
+__author__ = "Juno Park"
+__github__ = "https://github.com/junopark00/tk-katana"
+
 
 from distutils.version import StrictVersion
 import os

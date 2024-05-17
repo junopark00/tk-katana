@@ -1,3 +1,18 @@
+# Copyright (c) 2024 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+
+
+__author__ = "Juno Park"
+__github__ = "https://github.com/junopark00/tk-katana"
+
+
 import os
 from Katana import KatanaFile
 
@@ -72,7 +87,6 @@ class SceneOperation(HookClass):
         elif operation == "reset":
 
             while KatanaFile.IsFileDirty():
-                # Changes have been made to the scene
                 res = QtGui.QMessageBox.question(None,
                                                  "Save your scene?",
                                                  "Your scene has unsaved changes. Save before proceeding?",
@@ -85,5 +99,5 @@ class SceneOperation(HookClass):
                 else:
                     if not os.path.exists(os.path.dirname(file_path)):
                         os.makedirs(os.path.dirname(file_path))
-                KatanaFile.Save(file_path) # TODO: warning: this may not work...
+                KatanaFile.Save(file_path)
             return True

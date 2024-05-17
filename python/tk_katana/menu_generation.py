@@ -8,6 +8,11 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
+
+__author__ = "Juno Park"
+__github__ = "https://github.com/junopark00/tk-katana"
+
+
 import os
 import Katana
 from Katana import QtGui, QtCore, QtWidgets, UI4
@@ -187,7 +192,6 @@ class MenuGenerator(object):
 
         :param shotgun_menu: The full path to the shotgun menu
         """
-        # TODO: fix here
         for app_name, commands in sorted(commands_by_app.items()):
             if len(commands_by_app[app_name]) > 1:
                 app_menu = shotgun_menu.addMenu(app_name)

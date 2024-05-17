@@ -56,10 +56,10 @@ export KATANA_RESOURCES="$KATANA_RESOURCES:/tk-katana/resources/Katana"
 
 ```yaml
 engines.tk-katana.location:
-  type: dev
+  type: git
   name: tk-katana
   version: v0.0.1
-  path: "/path/to/tk-katana/engine"
+  path: "github.com/junopark00/tk-katana.git"
 ```
 
 #### 3. Then, create `config/env/includes/settings/tk-katana.yml`:
