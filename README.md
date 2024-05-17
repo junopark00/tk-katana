@@ -2,19 +2,28 @@
 
 `tk-katana` is a ShotGrid Toolkit engine for Katana, providing seamless integration with ShotGrid. This engine allows artists and technical directors to access ShotGrid functionality directly within Katana.
 
+<br>
+
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
+- [Environments](#environments)
 - [Configuration](#configuration)
-- [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
-`tk-katana` integrates ShotGrid with Katana, enabling a streamlined workflow for visual effects and animation production. By using this toolkit, users can easily manage assets, publish work, and track project progress within the Katana environment.
+`tk-katana` integrates ShotGrid with Katana, enabling a streamlined workflow for visual effects and animation production. 
+
+By using this toolkit, users can easily manage assets, publish work, and track project progress within the Katana environment.
+
+## Environments
+tk-katana has been tested in this environment:
+- Flow Production Tracking Desktop App 1.8.0
+- Katana 6.0v4
+  - Katana 6.0v4 uses PyQt5 but this engine converts the UI to PySide2.
 
 ## Features
 
@@ -29,17 +38,16 @@
 
 The official [ShotGrid Developer Help Center](https://help.autodesk.com/view/SGDEV/ENU/) and [Shotgrid Community](https://community.shotgridsoftware.com/) can be helpful.
 
-#### Clone this repository:
-```sh
-git clone https://github.com/junopark00/tk-katana
-```
 
 ## Configuration
 To configure `tk-katana`, edit the environment yml files located in the `config` directory.
 After adding the `tk-katana` engine, you can add various apps to `tk-katana`.
 
 
-#### Example engine_locations.yml:
+#### 1. Locate where you installed Pipeline Configuration
+
+#### 2. Add engine descriptor section to `config/env/includes/engine_locations.yml`:
+
 ```yaml
 engines.tk-katana.location:
   type: dev
@@ -47,22 +55,46 @@ engines.tk-katana.location:
   version: v0.0.1
   path: "/path/to/tk-katana/engine"
 ```
-## Usage
-To use `tk-katana` within Katana:
 
-Launch Katana.
-Open the tk-katana panel from the ShotGrid menu.
-Log in with your ShotGrid credentials.
-Start managing your assets, tasks, and publish your work directly from Katana.
+#### 3. Then, create `config/env/includes/settings/tk-katana.yml`:
+
+```yaml
+includes:
+#  - ../app_locations.yml
+  - ../engine_locations.yml
+#  - ./tk-multi-loader2.yml
+#  - ./tk-multi-publish2.yml
+  - ./tk-multi-workfiles2.yml
+
+# asset_step
+settings.tk-katana.asset_step:
+apps:
+   # tk-multi-about:
+   #   location: "@apps.tk-multi-about.location"
+   # tk-multi-loader2: "@settings.tk-multi-loader2.katana"
+   # tk-multi-publish2: "@settings.tk-multi-publish2.katana.asset_step"
+   tk-multi-workfiles2: "@settings.tk-multi-workfiles2.katana.asset_step"
+menu_favourites:
+  - {app_instance: tk-multi-workfiles2, name: File Open...}
+  - {app_instance: tk-multi-workfiles2, name: File Save...}
+#  - {app_instance: tk-multi-publish2, name: Publish...}
+#  - {app_instance: tk-multi-loader2, name: Load}
+location: '@engines.tk-katana.location'
+```
+
+#### 4. Update the apps using the `tank` command in your Pipeline Configurations folder:
+
+```sh
+./tank cache_apps
+```
+
 ## Contributing
-We welcome contributions to tk-katana. To contribute:
+Welcome contributions to tk-katana.
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature-name).
-Make your changes.
-Commit your changes (git commit -m 'Add some feature').
-Push to the branch (git push origin feature/your-feature-name).
-Open a pull request.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+To contribute:
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature/your-feature-name).
+3. Make your changes.
+4. Commit your changes (git commit -m 'Add some feature').
+5. Push to the branch (git push origin feature/your-feature-name).
+6. Open a pull request.

@@ -25,7 +25,7 @@ includes:
 # asset
 settings.tk-katana.asset:
   apps:
-    tk-multi-workfiles2: "@settings.tk-multi-workfiles2.launch_at_startup"
+    tk-multi-workfiles2: "@settings.tk-multi-workfiles2.katana"
   menu_favourites:
   - {app_instance: tk-multi-workfiles2, name: File Open...}
   debug_logging: false
@@ -44,13 +44,13 @@ settings.tk-katana.asset_step:
 # project
 settings.tk-katana.project:
   apps:
-    tk-multi-workfiles2: "@settings.tk-multi-workfiles2.launch_at_startup"
+    tk-multi-workfiles2: "@settings.tk-multi-workfiles2.katana"
   location: "@engines.tk-katana.location"
 
 # shot
 settings.tk-katana.shot:
   apps:
-    tk-multi-workfiles2: "@settings.tk-multi-workfiles2.launch_at_startup"
+    tk-multi-workfiles2: "@settings.tk-multi-workfiles2.katana"
   menu_favourites:
   - {app_instance: tk-multi-workfiles2, name: File Open...}
   location: "@engines.tk-katana.location"

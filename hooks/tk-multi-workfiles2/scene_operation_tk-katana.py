@@ -1,6 +1,3 @@
-# By Sam Saxon sam.saxon@thefoundry.com
-# Copied from the equivalent Nuke file.
-
 import os
 from Katana import KatanaFile
 
