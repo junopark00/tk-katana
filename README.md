@@ -1,8 +1,8 @@
 # tk-katana
 
-`tk-katana` is a ShotGrid Toolkit engine for Katana, providing seamless integration with ShotGrid. This engine allows artists and technical directors to access ShotGrid functionality directly within Katana.
+`tk-katana` is a ShotGrid Toolkit engine for Katana, providing seamless integration with ShotGrid. 
 
-<br>
+This engine allows artists and technical directors to access ShotGrid functionality directly within Katana.
 
 ## Table of Contents
 
@@ -45,6 +45,12 @@ After adding the `tk-katana` engine, you can add various apps to `tk-katana`.
 
 
 #### 1. Locate where you installed Pipeline Configuration
+
+#### 2. Add KATANA_RESOURCES to recognition of init.py in tk-katana within Katana
+
+```sh
+export KATANA_RESOURCES="$KATANA_RESOURCES:/tk-katana/resources/Katana"
+```
 
 #### 2. Add engine descriptor section to `config/env/includes/engine_locations.yml`:
 
