@@ -14,8 +14,8 @@ __github__ = "https://github.com/junopark00/tk-katana"
 
 
 import os
-import sgtk
 
+import sgtk
 from sgtk.platform import SoftwareLauncher, SoftwareVersion, LaunchInformation
 
 

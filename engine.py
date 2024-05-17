@@ -13,14 +13,16 @@ __author__ = "Juno Park"
 __github__ = "https://github.com/junopark00/tk-katana"
 
 
-from distutils.version import StrictVersion
 import os
 import traceback
-import sgtk
-import Katana
-from sgtk import TankError
+
 import PySide2
+
+from distutils.version import StrictVersion
+import sgtk
+from sgtk import TankError
 from sgtk.util.pyside2_patcher import PySide2Patcher
+import Katana
 
 
 class KatanaEngine(sgtk.platform.Engine):

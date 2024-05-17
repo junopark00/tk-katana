@@ -14,11 +14,11 @@ __github__ = "https://github.com/junopark00/tk-katana"
 
 
 import os
-from Katana import KatanaFile
 
 import sgtk
 from sgtk import TankError
 from sgtk.platform.qt import QtGui
+from Katana import KatanaFile
 
 HookClass = sgtk.get_hook_baseclass()
 
