@@ -31,7 +31,7 @@ The official [ShotGrid Developer Help Center](https://help.autodesk.com/view/SGD
 
 #### Clone this repository:
 ```sh
-   git clone https://github.com/junopark00/tk-katana
+git clone https://github.com/junopark00/tk-katana
 ```
 
 ## Configuration

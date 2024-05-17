@@ -1,0 +1,81 @@
+################################################################################
+
+# ---- Katana
+
+settings.tk-multi-workfiles2.katana:
+  hook_scene_operation: "{engine}/tk-multi-workfiles2/scene_operation_tk-katana.py"
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    hierarchy: [sg_asset_type, code]
+    filters:
+    sub_hierarchy:
+      entity_type: Task
+      filters:
+      link_field: entity
+      hierarchy: [step]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    hierarchy: [sg_sequence, code]
+    sub_hierarchy:
+      entity_type: Task
+      filters:
+      link_field: entity
+      hierarchy: [step]
+
+# asset_step
+settings.tk-multi-workfiles2.katana.asset_step:
+  hook_scene_operation: "{engine}/tk-multi-workfiles2/scene_operation_tk-katana.py"
+  template_publish: katana_asset_pub
+  template_publish_area: asset_pub_area_katana
+  template_work: katana_asset_dev
+  template_work_area: asset_dev_area_katana
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    hierarchy: [sg_asset_type, code]
+    filters:
+    sub_hierarchy:
+      entity_type: Task
+      filters:
+      link_field: entity
+      hierarchy: [step]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    hierarchy: [sg_sequence, code]
+    sub_hierarchy:
+      entity_type: Task
+      filters:
+      link_field: entity
+      hierarchy: [step]
+  location: "@apps.tk-multi-workfiles2.location"
+
+# shot_step
+settings.tk-multi-workfiles2.katana.shot_step:
+  hook_scene_operation: "{engine}/tk-multi-workfiles2/scene_operation_tk-katana.py"
+  template_publish: katana_shot_pub
+  template_publish_area: shot_pub_area_katana
+  template_work: katana_shot_dev
+  template_work_area: shot_dev_area_katana
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    hierarchy: [sg_asset_type, code]
+    filters:
+    sub_hierarchy:
+      entity_type: Task
+      filters:
+      link_field: entity
+      hierarchy: [step]
+  - caption: Shots
+    entity_type: Shot
+    filters:
+    hierarchy: [sg_sequence, code]
+    sub_hierarchy:
+      entity_type: Task
+      filters:
+      link_field: entity
+      hierarchy: [step]
+  location: '@apps.tk-multi-workfiles2.location'

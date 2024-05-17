@@ -1,0 +1,6 @@
+includes:
+-./includes/settings/tk-katana.yml
+
+engines:
+  tk-katana: "@settings.tk-katana.shot_step
+

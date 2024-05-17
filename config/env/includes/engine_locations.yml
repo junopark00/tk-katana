@@ -1,0 +1,6 @@
+#Katana
+engines.tk-katana.location:
+  type: dev
+  name: tk-katana
+  path: /path/to/tk-katana/engine
+  version: v0.0.1
