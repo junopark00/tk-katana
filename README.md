@@ -21,6 +21,7 @@ By using this toolkit, users can easily manage assets, publish work, and track p
 
 ## Environments
 `tk-katana` has been tested in this environment:
+- CentOS 7
 - Shotgrid Desktop App 1.8.0
 - Katana 6.0v4
   - Katana 6.0v4 uses `PyQt5` but this engine converts the UI to `PySide2`.
