@@ -48,8 +48,6 @@ def bootstrap():
     except Exception:
         error_msg = "Shotgun: Could not start engine: '%s'\n%s"
         logger.error(error_msg, engine_name, traceback.format_exc())
-        with open("/RAPA/log.txt", "a") as f:
-            f.write("Could not start engine: '%s'\n%s" % (engine_name, traceback.format_exc())) 
         return
 
     # clean up temp env vars
